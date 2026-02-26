@@ -1,0 +1,6 @@
+await token.totalSupply() // → 100000000000000000000000000n
+await token.symbol()      // → "DTK"
+await token.name()        // → "DataToken"
+// Vérifier le nom du token
+const token = await ethers.getContractAt("DataToken", "0x5FbDB2315678afecb367f032d93F642f64180aa3")
+// Récupérer le contrat DataToken

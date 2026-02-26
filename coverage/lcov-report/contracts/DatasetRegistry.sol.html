@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts\DatasetRegistry.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> DatasetRegistry.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>26/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">76.09% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>35/46</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>12/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>39/39</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+&nbsp;
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+&nbsp;
+/**
+ * @title DatasetRegistry
+ * @dev Enregistre les hash IPFS des datasets sur la blockchain
+ * @author Lead Blockchain Engineer - DataMarketplace
+ */
+contract DatasetRegistry is Ownable, ReentrancyGuard {
+&nbsp;
+    // ============================================================
+    //  STRUCTURES
+    // ============================================================
+&nbsp;
+    struct Dataset {
+        string  ipfsHash;        // Hash CID IPFS (ex: QmXxx...)
+        address owner;           // Propriétaire du dataset
+        uint256 price;           // Prix en tokens (en wei équivalent)
+        uint256 registeredAt;    // Timestamp d'enregistrement
+        uint256 usageCount;      // Nombre d'utilisations
+        DataType dataType;       // Type de données
+        bool    isActive;        // Disponible sur le marketplace
+        string  metadata;        // JSON metadata (titre, description, tags)
+        bytes32 contentHash;     // Hash SHA256 du contenu (anti-doublon)
+    }
+&nbsp;
+    enum DataType { IMAGE, TEXT, AUDIO, VIDEO, TABULAR, OTHER }
+&nbsp;
+    // ============================================================
+    //  STORAGE
+    // ============================================================
+&nbsp;
+    // datasetId =&gt; Dataset
+    mapping(uint256 =&gt; Dataset) public datasets;
+&nbsp;
+    // contentHash =&gt; datasetId (détection doublons)
+    mapping(bytes32 =&gt; uint256) public contentHashToId;
+&nbsp;
+    // owner =&gt; liste de ses datasetIds
+    mapping(address =&gt; uint256[]) public ownerDatasets;
+&nbsp;
+    // datasetId =&gt; acheteurs autorisés
+    mapping(uint256 =&gt; mapping(address =&gt; bool)) public accessGranted;
+&nbsp;
+    uint256 public nextDatasetId = 1;
+    uint256 public platformFeePercent = 5; // 5% de frais plateforme
+&nbsp;
+    // ============================================================
+    //  EVENTS
+    // ============================================================
+&nbsp;
+    event DatasetRegistered(
+        uint256 indexed datasetId,
+        address indexed owner,
+        string  ipfsHash,
+        bytes32 contentHash,
+        uint256 price,
+        DataType dataType
+    );
+&nbsp;
+    event DatasetPurchased(
+        uint256 indexed datasetId,
+        address indexed buyer,
+        address indexed owner,
+        uint256 amount
+    );
+&nbsp;
+    event DatasetPriceUpdated(
+        uint256 indexed datasetId,
+        uint256 oldPrice,
+        uint256 newPrice
+    );
+&nbsp;
+    event DatasetDeactivated(uint256 indexed datasetId);
+&nbsp;
+    // ============================================================
+    //  MODIFIERS
+    // ============================================================
+&nbsp;
+    modifier onlyDatasetOwner(uint256 _datasetId) {
+        require(datasets[_datasetId].owner == msg.sender, "Not dataset owner");
+        _;
+    }
+&nbsp;
+    modifier datasetExists(uint256 _datasetId) {
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(_datasetId &gt; 0 &amp;&amp; _datasetId &lt; nextDatasetId, "Dataset not found");
+        _;
+    }
+&nbsp;
+    modifier datasetActive(uint256 _datasetId) {
+        require(datasets[_datasetId].isActive, "Dataset not active");
+        _;
+    }
+&nbsp;
+    // ============================================================
+    //  CONSTRUCTOR
+    // ============================================================
+&nbsp;
+    constructor() Ownable(msg.sender) {}
+&nbsp;
+    // ============================================================
+    //  CORE FUNCTIONS
+    // ============================================================
+&nbsp;
+    /**
+     * @dev Enregistre un nouveau dataset
+     * @param _ipfsHash  CID IPFS du fichier uploadé
+     * @param _contentHash Hash SHA256 du contenu (calculé off-chain)
+     * @param _price     Prix en wei
+     * @param _dataType  Type de données
+     * @param _metadata  JSON string avec titre, description, tags
+     */
+    function registerDataset(
+        string  calldata _ipfsHash,
+        bytes32          _contentHash,
+        uint256          _price,
+        DataType         _dataType,
+        string  calldata _metadata
+    ) external <span class="missing-if-branch" title="else path not taken" >E</span>nonReentrant returns (uint256 datasetId) {
+&nbsp;
+        require(bytes(_ipfsHash).length &gt; 0,    "Empty IPFS hash");
+        require(_contentHash != bytes32(0),      "Empty content hash");
+        require(contentHashToId[_contentHash] == 0, "Duplicate content detected");
+&nbsp;
+        datasetId = nextDatasetId++;
+&nbsp;
+        datasets[datasetId] = Dataset({
+            ipfsHash:    _ipfsHash,
+            owner:       msg.sender,
+            price:       _price,
+            registeredAt: block.timestamp,
+            usageCount:  0,
+            dataType:    _dataType,
+            isActive:    true,
+            metadata:    _metadata,
+            contentHash: _contentHash
+        });
+&nbsp;
+        contentHashToId[_contentHash] = datasetId;
+        ownerDatasets[msg.sender].push(datasetId);
+&nbsp;
+        emit DatasetRegistered(
+            datasetId,
+            msg.sender,
+            _ipfsHash,
+            _contentHash,
+            _price,
+            _dataType
+        );
+    }
+&nbsp;
+    /**
+     * @dev Achète l'accès à un dataset (paiement en ETH natif)
+     */
+    function purchaseAccess(uint256 _datasetId)
+        external
+        payable
+        <span class="missing-if-branch" title="else path not taken" >E</span>nonReentrant
+        <span class="missing-if-branch" title="else path not taken" >E</span>datasetExists(_datasetId)
+        datasetActive(_datasetId)
+    {
+        Dataset storage dataset = datasets[_datasetId];
+&nbsp;
+        require(!accessGranted[_datasetId][msg.sender], "Already purchased");
+        require(msg.sender != dataset.owner, "Owner already has access");
+        require(msg.value &gt;= dataset.price, "Insufficient payment");
+&nbsp;
+        // Calcul des frais plateforme
+        uint256 fee          = (msg.value * platformFeePercent) / 100;
+        uint256 ownerAmount  = msg.value - fee;
+&nbsp;
+        // Transfert au propriétaire
+        (bool success, ) = payable(dataset.owner).call{value: ownerAmount}("");
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(success, "Transfer to owner failed");
+&nbsp;
+        // Les frais restent dans le contrat (pour la plateforme)
+&nbsp;
+        accessGranted[_datasetId][msg.sender] = true;
+        dataset.usageCount++;
+&nbsp;
+        emit DatasetPurchased(_datasetId, msg.sender, dataset.owner, msg.value);
+    }
+&nbsp;
+    /**
+     * @dev Vérifie si un dataset existe déjà (anti-doublon)
+     */
+    function checkDuplicate(bytes32 _contentHash) external view returns (bool exists, uint256 datasetId) {
+        datasetId = contentHashToId[_contentHash];
+        exists    = datasetId != 0;
+    }
+&nbsp;
+    /**
+     * @dev Retourne tous les datasets d'un owner
+     */
+    function getOwnerDatasets(address _owner) external view returns (uint256[] memory) {
+        return ownerDatasets[_owner];
+    }
+&nbsp;
+    /**
+     * @dev Met à jour le prix d'un dataset
+     */
+    function updatePrice(uint256 _datasetId, uint256 _newPrice)
+        external
+        <span class="missing-if-branch" title="else path not taken" >E</span>datasetExists(_datasetId)
+        onlyDatasetOwner(_datasetId)
+    {
+        uint256 oldPrice = datasets[_datasetId].price;
+        datasets[_datasetId].price = _newPrice;
+        emit DatasetPriceUpdated(_datasetId, oldPrice, _newPrice);
+    }
+&nbsp;
+    /**
+     * @dev Désactive un dataset du marketplace
+     */
+    function deactivateDataset(uint256 _datasetId)
+        external
+        <span class="missing-if-branch" title="else path not taken" >E</span>datasetExists(_datasetId)
+        <span class="missing-if-branch" title="else path not taken" >E</span>onlyDatasetOwner(_datasetId)
+    {
+        datasets[_datasetId].isActive = false;
+        emit DatasetDeactivated(_datasetId);
+    }
+&nbsp;
+    /**
+     * @dev Withdrawal des frais plateforme (owner uniquement)
+     */
+    function withdrawFees(address payable _to) external onlyOwner {
+        uint256 balance = address(this).balance;
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(balance &gt; 0, "No fees to withdraw");
+        (bool success, ) = _to.call{value: balance}("");
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(success, "Withdrawal failed");
+    }
+&nbsp;
+    /**
+     * @dev Mise à jour des frais plateforme
+     */
+    function setPlatformFee(uint256 _feePercent) external <span class="missing-if-branch" title="else path not taken" >E</span>onlyOwner {
+        require(_feePercent &lt;= 20, "Fee too high");
+        platformFeePercent = _feePercent;
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Feb 26 2026 11:06:16 GMT+0100 (heure d’Afrique de l’Ouest)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

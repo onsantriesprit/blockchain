@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "data-marketplace-frontend",
   "version": "0.1.0",
   "private": true,
@@ -38,5 +39,32 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+=======
+  "name": "data-marketplace-blockchain",
+  "version": "1.0.0",
+  "description": "Decentralized Data Marketplace - Blockchain Layer",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "test": "npx hardhat test",
+    "deploy:test": "npx hardhat run scripts/deploy.js --network mumbai",
+    "deploy:prod": "npx hardhat run scripts/deploy.js --network polygon",
+    "deploy:local": "npx hardhat node & npx hardhat run scripts/deploy.js --network localhost",
+    "verify": "npx hardhat verify",
+    "coverage": "npx hardhat coverage",
+    "gas-report": "REPORT_GAS=true npx hardhat test"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.0",
+    "axios": "^1.6.0",
+    "crypto-js": "^4.2.0",
+    "ethers": "^6.9.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "dotenv": "^16.3.1",
+    "hardhat": "^2.19.0",
+    "hardhat-gas-reporter": "^1.0.10",
+    "solidity-coverage": "^0.8.17"
+>>>>>>> origin/front
   }
 }
