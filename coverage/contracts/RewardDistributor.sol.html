@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts\RewardDistributor.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> RewardDistributor.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">93.75% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>30/32</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">69.44% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>25/36</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>11/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>46/46</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+&nbsp;
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+import "./DataToken.sol";
+&nbsp;
+/**
+ * @title RewardDistributor
+ * @dev Distribue automatiquement les tokens selon les actions des utilisateurs
+ *
+ * Système de récompenses :
+ * - Upload dataset        → 50 DTK de base + bonus qualité
+ * - Tâche complétée       → 100 DTK
+ * - Dataset utilisé       → 10 DTK par utilisation (passif)
+ * - Parrainage            →  20 DTK
+ */
+contract RewardDistributor is Ownable, ReentrancyGuard {
+&nbsp;
+    DataToken public immutable token;
+&nbsp;
+    // ============================================================
+    //  REWARD AMOUNTS (en DTK avec 18 décimales)
+    // ============================================================
+&nbsp;
+    uint256 public rewardUpload       = 50  * 1e18;
+    uint256 public rewardTaskComplete = 100 * 1e18;
+    uint256 public rewardDatasetUsed  = 10  * 1e18;
+    uint256 public rewardReferral     = 20  * 1e18;
+&nbsp;
+    // ============================================================
+    //  USER SCORES &amp; STATS
+    // ============================================================
+&nbsp;
+    struct UserStats {
+        uint256 totalEarned;     // Total de tokens gagnés (historique)
+        uint256 datasetsUploaded;
+        uint256 tasksCompleted;
+        uint256 datasetsUsed;    // Nombre de fois que ses données ont été utilisées
+        uint256 level;           // Niveau calculé automatiquement
+        bool    registered;
+    }
+&nbsp;
+    mapping(address =&gt; UserStats) public userStats;
+    mapping(address =&gt; address)   public referrals;      // user =&gt; referrer
+&nbsp;
+    // Prévenir les doubles récompenses pour un même dataset
+    mapping(bytes32 =&gt; bool) public rewardProcessed;
+&nbsp;
+    address public registryContract; // DatasetRegistry autorisé à déclencher des rewards
+&nbsp;
+    // ============================================================
+    //  EVENTS
+    // ============================================================
+&nbsp;
+    event RewardIssued(
+        address indexed user,
+        uint256 amount,
+        string  rewardType,
+        uint256 newTotalEarned
+    );
+&nbsp;
+    event UserLevelUp(address indexed user, uint256 oldLevel, uint256 newLevel);
+    event UserRegistered(address indexed user, address indexed referrer);
+&nbsp;
+    // ============================================================
+    //  MODIFIERS
+    // ============================================================
+&nbsp;
+    modifier onlyRegistry() {
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(<span class="branch-0 cbranch-no" title="branch not covered" >msg.sender == registryContract</span> || msg.sender == owner(), "Not authorized");
+        _;
+    }
+&nbsp;
+    // ============================================================
+    //  CONSTRUCTOR
+    // ============================================================
+&nbsp;
+    constructor(address _tokenAddress) Ownable(msg.sender) {
+        token = DataToken(_tokenAddress);
+    }
+&nbsp;
+    // ============================================================
+    //  REGISTRATION
+    // ============================================================
+&nbsp;
+    /**
+     * @dev Inscription d'un utilisateur avec parrainage optionnel
+     */
+    function registerUser(address _referrer) external {
+        require(!userStats[msg.sender].registered, "Already registered");
+&nbsp;
+        userStats[msg.sender].registered = true;
+        userStats[msg.sender].level      = 1;
+&nbsp;
+        emit UserRegistered(msg.sender, _referrer);
+&nbsp;
+        // Bonus parrainage
+        if (_referrer != address(0) &amp;&amp; _referrer != msg.sender &amp;&amp; userStats[_referrer].registered) {
+            referrals[msg.sender] = _referrer;
+            _issueReward(_referrer, rewardReferral, "referral");
+        }
+    }
+&nbsp;
+    // ============================================================
+    //  REWARD FUNCTIONS
+    // ============================================================
+&nbsp;
+    /**
+     * @dev Récompense pour un upload de dataset
+     * @param _user      Uploadeur
+     * @param _datasetId ID du dataset
+     * @param _qualityScore Score de qualité 0-100 (donné par l'Agent VLM)
+     */
+    function rewardDatasetUpload(
+        address _user,
+        uint256 _datasetId,
+        uint8   _qualityScore
+    ) external <span class="missing-if-branch" title="else path not taken" >E</span>onlyRegistry <span class="missing-if-branch" title="else path not taken" >E</span>nonReentrant {
+        bytes32 key = keccak256(abi.encodePacked("upload", _datasetId));
+        require(!rewardProcessed[key], "Already rewarded");
+&nbsp;
+        rewardProcessed[key] = true;
+&nbsp;
+        // Bonus qualité : jusqu'à +100% si qualityScore = 100
+        uint256 bonus  = (rewardUpload * _qualityScore) / 100;
+        uint256 amount = rewardUpload + bonus;
+&nbsp;
+        userStats[_user].datasetsUploaded++;
+        _issueReward(_user, amount, "dataset_upload");
+    }
+&nbsp;
+    /**
+     * @dev Récompense passive quand un dataset est utilisé/acheté
+     */
+    function rewardDatasetUsage(address _owner, uint256 _datasetId)
+        external
+        <span class="missing-if-branch" title="else path not taken" >E</span>onlyRegistry
+        <span class="missing-if-branch" title="else path not taken" >E</span>nonReentrant
+    {
+        // Pas de limite ici, chaque utilisation génère une récompense
+        userStats[_owner].datasetsUsed++;
+        _issueReward(_owner, rewardDatasetUsed, "dataset_used");
+&nbsp;
+        // Clé unique par usage pour tracking
+        emit RewardIssued(_owner, rewardDatasetUsed, "dataset_used", userStats[_owner].totalEarned);
+    }
+&nbsp;
+    /**
+     * @dev Récompense pour complétion d'une tâche assignée par l'Agent Task Generator
+     * @param _user      Utilisateur
+     * @param _taskId    ID de la tâche
+     * @param _bonusMultiplier Multiplicateur 100 = x1, 200 = x2 (selon difficulté)
+     */
+    function rewardTaskCompletion(
+        address _user,
+        uint256 _taskId,
+        uint16  _bonusMultiplier
+    ) external <span class="missing-if-branch" title="else path not taken" >E</span>onlyOwner <span class="missing-if-branch" title="else path not taken" >E</span>nonReentrant {
+        bytes32 key = keccak256(abi.encodePacked("task", _taskId, _user));
+        require(!rewardProcessed[key], "Task already rewarded");
+&nbsp;
+        rewardProcessed[key] = true;
+&nbsp;
+        uint256 amount = (rewardTaskComplete * _bonusMultiplier) / 100;
+        userStats[_user].tasksCompleted++;
+        _issueReward(_user, amount, "task_completed");
+    }
+&nbsp;
+    // ============================================================
+    //  INTERNAL
+    // ============================================================
+&nbsp;
+    function _issueReward(address _user, uint256 _amount, string memory _type) internal {
+        userStats[_user].totalEarned += _amount;
+        token.mintReward(_user, _amount, _type);
+&nbsp;
+        uint256 oldLevel = userStats[_user].level;
+        uint256 newLevel = _calculateLevel(userStats[_user].totalEarned);
+&nbsp;
+        if (newLevel &gt; oldLevel) {
+            userStats[_user].level = newLevel;
+            emit UserLevelUp(_user, oldLevel, newLevel);
+        }
+&nbsp;
+        emit RewardIssued(_user, _amount, _type, userStats[_user].totalEarned);
+    }
+&nbsp;
+    /**
+     * @dev Calcule le niveau utilisateur basé sur ses gains totaux
+     * Niveau 1: 0 - 500 DTK
+     * Niveau 2: 500 - 2000 DTK
+     * Niveau 3: 2000 - 10000 DTK
+     * Niveau 4: 10000+ DTK
+     */
+    function _calculateLevel(uint256 _totalEarned) internal pure returns (uint256) {
+        uint256 earned = _totalEarned / 1e18; // Convertir en DTK entiers
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (earned &gt;= 10_000) <span class="cstat-no" title="statement not covered" >return 4;</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (earned &gt;= 2_000)  <span class="cstat-no" title="statement not covered" >return 3;</span>
+        if (earned &gt;= 500)    return 2;
+        return 1;
+    }
+&nbsp;
+    // ============================================================
+    //  CONFIG
+    // ============================================================
+&nbsp;
+    function setRegistryContract(address _registry) external <span class="missing-if-branch" title="else path not taken" >E</span>onlyOwner {
+        registryContract = _registry;
+    }
+&nbsp;
+    function updateRewardAmounts(
+        uint256 _upload,
+        uint256 _task,
+        uint256 _usage,
+        uint256 _referral
+    ) external onlyOwner {
+        rewardUpload       = _upload;
+        rewardTaskComplete = _task;
+        rewardDatasetUsed  = _usage;
+        rewardReferral     = _referral;
+    }
+&nbsp;
+    /**
+     * @dev Retourne les stats complètes d'un utilisateur
+     */
+    function getUserProfile(address _user) external view returns (
+        uint256 totalEarned,
+        uint256 datasetsUploaded,
+        uint256 tasksCompleted,
+        uint256 datasetsUsed,
+        uint256 level,
+        uint256 tokenBalance
+    ) {
+        UserStats memory stats = userStats[_user];
+        return (
+            stats.totalEarned,
+            stats.datasetsUploaded,
+            stats.tasksCompleted,
+            stats.datasetsUsed,
+            stats.level,
+            token.balanceOf(_user)
+        );
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Feb 26 2026 11:06:16 GMT+0100 (heure d’Afrique de l’Ouest)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
